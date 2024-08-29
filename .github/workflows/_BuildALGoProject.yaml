@@ -98,7 +98,12 @@ jobs:
           shell: ${{ inputs.shell }}
           project: ${{ inputs.project }}
           get: useCompilerFolder,keyVaultCodesignCertificateName,doNotSignApps,doNotRunTests,artifact,generateDependencyArtifact
-
+      
+      - name: SayHi
+        shell: pwsh
+        run: |
+          Write-Host 'Hello from the build job!'
+          
       - name: Read secrets
         id: ReadSecrets
         if: github.event_name != 'pull_request'
